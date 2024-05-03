@@ -1,4 +1,4 @@
-import * as stack from './stacks.js';
+import * as stack from './stack.js';
 
 window.onload = function () {
     console.log("done");
