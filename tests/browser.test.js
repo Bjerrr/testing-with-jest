@@ -36,10 +36,14 @@ describe('Clicking "Pusha till stacken"', () => {
 test('The pop removes what is on the top of the stack', async () => {
 	let pop = await driver.findElement(By.id('pop'));
 	let stackPrePop = await driver.findElement(By.id('top_of_stack')).getText();
+	console.log(stackPrePop);
 	await pop.click();
 	let alert = await driver.switchTo().alert();
 	await alert.accept();
+	let peek = await driver.findElement(By.id('peek'));
+	await peek.click();
 	let stackPostPop = await driver.findElement(By.id('top_of_stack')).getText();
+	console.log(stackPostPop);
 	expect(stackPostPop).not.toContain("Bananer");
 	expect(stackPostPop).not.toEqual(stackPrePop);
 });
